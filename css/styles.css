@@ -1,0 +1,796 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body,td,th,p{
+  font: 16px/1.6 Arial, Helvetica, sans-serif;
+	color: #333;
+}
+body {
+	background-color: #fdfdfd;
+	margin: 0;
+  position:relative;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #FCAA67;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #FCAA67;  
+	text-decoration: none;
+}
+
+a img{
+	border: none 0px #fff;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 20px;
+}
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+#maincontent, #breadcrumb {
+  max-width: 1200px;
+  margin: auto;
+}
+#maincontent {
+  background-color: #f3f3f3;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #999;
+}
+#footer {
+  background-color: #444;
+  color: #ccc;
+  letter-spacing: 1px;
+  padding: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+nav {
+  width: 100%;
+  height: 80px;
+  background-color: #548687;
+  text-align: center;
+  display: grid;
+  line-height: 1.4;
+}
+nav h1 {
+  margin: auto;
+  display: inline-block;
+}
+nav h1 a {
+  color: #fff;
+  font-weight: 200;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+#breadcrumb {
+    padding: 16px 40px;
+    list-style: none;
+    background-color: #eee;
+    border-right: 1px solid #999;
+    border-left: 1px solid #999;
+}
+
+#breadcrumb li {
+    display: inline;
+}
+
+#breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+#breadcrumb li a {
+    color: #FCAA67;
+    text-decoration: none;
+    border-bottom: 1px dotted #FCAA67;
+}
+
+#breadcrumb li a:hover {
+    color: #333;
+    text-decoration: underline;
+    border: none;
+}
+#map {
+  height: 400px;
+  width: 100%;
+  background-color: #ccc;
+}
+#map-container {
+  width: 100%;
+}
+
+#filter-list-container {
+  width: 100%;
+}
+
+.filter-options {
+  background-color: #548687;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-options h2 {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: normal;
+  line-height: 1;
+  margin: 6px 10px;
+}
+
+.filter-options select {
+  background-color: white;
+  border: 1px solid #fff;
+  font-family: Arial,sans-serif;
+  height: 35px;
+  letter-spacing: 0;
+  margin: 10px;
+  padding: 0 10px;
+  width: 200px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.filter-options label {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#restaurants-list {
+  background-color: #f3f3f3;
+  list-style: outside none none;
+  margin: 0;
+  padding: 20px 15px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#restaurants-list li {
+  background-color: #fff;
+  border: 1px solid #999;
+  font-family: Arial,sans-serif;
+  margin: 15px;
+  min-height: 380px;
+  padding: 0 0 25px;
+  text-align: left;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border-radius: 4px;
+  padding: 0.5%;
+}
+
+#restaurants-list .fav-control {
+  background-color: white;
+  width: 44px;
+  height: 40px;
+  position: absolute;
+  align-self: flex-end;
+  margin: 0;
+  margin-top: 6px;
+  margin-right: 6px;
+  margin-left: -6px;
+  padding: 5px;
+  border: 1px solid #999;
+  border: 4px double #999;
+  background-image: url('../img/fixed/favorite6.png');
+  background-repeat: no-repeat;
+  background-position: 8px -41px;
+  background-size: 25px;
+  cursor: pointer;
+  text-indent: -10000px;
+  border-radius: 0;
+}
+
+#restaurants-list .fav-control.active  {
+  background-position: 8px 9px;
+}
+
+#restaurants-list .fav-control:hover {
+  background-position: 8px -91px;
+}
+
+#restaurants-list .restaurant-img {
+  display: block;
+  margin: 0;
+  max-width: 100%;
+  min-width: 100%;
+  border-bottom: 1px solid #999;
+  padding: 6px;
+}
+
+#restaurants-list .restaurant-info {
+  margin: 0 22px;
+  height: 156px;
+}
+
+#restaurants-list li h2 {
+  color: #FCAA67;
+  font-family: Arial,sans-serif;
+  font-size: 1.4em;
+  font-weight: 200;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 20px 0 10px;
+  text-transform: uppercase;
+  border-bottom: 1px dotted;
+  height: 56px;
+}
+
+#restaurants-list p {
+  margin: 0;
+  line-height: 1.3;
+}
+
+#restaurants-list li button {
+  background-color: brown;
+  color: #fff;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 20px;
+  font-size: 1em;
+  border-radius: 6px;
+}
+
+#restaurants-list li button:hover {
+  color: #ff9292;
+  cursor: pointer;
+}
+
+.inside #map-container {
+  background: #f7dba8 none repeat scroll 0 0;
+  height: 400px;
+  border-bottom: 1px solid #999;
+  width: 100%;
+}
+.inside #map {
+  background-color: #ccc;
+  height: 100%;
+  width: 100%;
+}
+#restaurant-name {
+  color: #FCAA67;
+  font-family: Arial,sans-serif;
+  font-weight: 200;
+  letter-spacing: 0;
+  margin: 5px 0 30px;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+#restaurant-img-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#restaurant-fav {
+  background-color: white;
+  width: 44px;
+  height: 40px;
+  position: absolute;
+  align-self: flex-end;
+  margin: 0;
+  margin-top: 6px;
+  margin-right: 6px;
+  margin-left: -6px;
+  padding: 5px;
+  border: 1px solid #999;
+  border: 4px double #999;
+  background-repeat: no-repeat;
+  background-position: 8px -41px;
+  background-size: 25px;
+  cursor: pointer;
+  text-indent: -10000px;
+  border-radius: 0;
+}
+#restaurant-fav.active {
+  background-position: 8px 9px;
+}
+#restaurant-fav:hover {
+  background-position: 8px -91px;
+}
+#restaurant-img {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #999;
+  padding: 5px;
+  border-radius: 4px;
+}
+#restaurant-address {
+  margin: 10px 0px;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 16px;
+}
+#restaurant-cuisine {
+  background-color: #333;
+  color: #ddd;
+  font-weight: 300;
+  letter-spacing: 10px;
+  margin: 0 0 20px;
+  padding: 2px 0;
+  text-align: center;
+  text-transform: uppercase;
+	width: 100%;
+}
+#restaurant-container, #reviews-container {
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #fff;
+  padding: 20px 40px;
+}
+#restaurant-container {
+  width: 38%;
+}
+#reviews-container {
+  padding-bottom: 0;
+  width: 62%;
+}
+#reviews-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+#reviews-container h2 {
+  color: #FCAA67;
+  font-weight: 300;
+  letter-spacing: -1px;
+  padding-bottom: 1pt;
+  margin-right: 10px;
+}
+.ctrl-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.review_btn {
+  padding: 0;
+  min-height: 40px;
+  cursor: pointer;
+}
+.review-edit-btn, .review-del-btn {
+  font-weight: bold;
+
+}
+#review-add-btn {
+  font-size: 1.6em;
+}
+.review-edit-btn {
+  font-size: 0.825em;
+}
+#reviews-list {
+  margin: 0;
+  padding: 0;
+}
+#reviews-list li {
+  background-color: #fff;
+  border: 1px solid #999;
+  display: block;
+  list-style-type: none;
+  margin: 0 0 30px;
+  padding: 10px 20px 16px;
+  position: relative;
+  border-radius: 4px;
+}
+#reviews-list li p {
+  margin: 0 0 10px;
+}
+#reviews-list li p:first-of-type {
+  font-weight: bold;
+  float: left;
+}
+#reviews-list li p.createdAt {
+  float: right;
+}
+#reviews-list li p.updatedAt {
+  clear: both;
+  font-weight: bold
+}
+#reviews-list li p.updatedAt span {
+  color: #008800;
+  font-weight: normal;
+  float: right;
+}
+  
+#reviews-list li p.rating {
+  float: left;
+}
+#reviews-list li p.comments {
+  clear: both;
+}
+#reviews-list li p:nth-of-type(3)[data-rating="3"] {
+  color: #333;
+}
+#reviews-list li p:nth-of-type(3)[data-rating="2"] {
+  color: red;
+}
+#reviews-list li p:nth-of-type(3)[data-rating="1"] {
+  color: red;
+}
+#restaurant-hours td {
+  color: #666;
+}
+#restaurant-hours td:first-child {
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #666;
+  border-radius: 10px;
+  opacity: 0;
+  transition: all .3s;
+  overflow: hidden;
+  background-color: #eee;
+  visibility: hidden;
+}
+.show {
+  visibility: visible;  
+  opacity: 1;
+}
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #000;
+  opacity: 0;
+  transition: all .3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+.modal-overlay.show {
+  display: block;
+  opacity: 0.5;  
+}
+.modal .close-btn {
+  align-self: flex-end;
+  font-size: 1.4em;
+  margin: 8px 8px 0;
+  padding: 0 8px;
+  cursor: pointer;
+}
+form {
+  max-width: 900px;
+  padding: 0 20px 20px 20px;
+}
+input,
+select,
+.rate,
+textarea {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 1px #e1e1e1;
+  font-size: 16px;
+  padding: 8px;
+}
+.static-rate {
+  border-radius: 8px;
+  padding: 10px;
+}
+input[type="radio"] {
+  box-shadow: none;
+}
+button {
+  background: #f9f9f9;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 8px;
+  min-width: 48px;
+  min-height: 48px;
+}
+button:hover{
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+button:active {
+  border-style: ridge;
+}
+button#review-add-btn, 
+button.close-btn, 
+button#submit_review_btn {
+  min-height: 40px;
+}
+button#submit_review_btn {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 16px;
+}
+
+.fieldset {
+  margin-top: 20px;
+}
+.right {
+  align-self: flex-end;
+}
+.modal_form_container {
+  width: 100%;
+  padding: 0 20px 26px;
+  color: #333;
+  overflow-y: auto;
+}
+
+.modal_form_container h2 {
+  margin: 0 0 0 6px;
+}
+
+#confirm_delete_modal {
+  top: 30%;
+}
+
+#confirm_form {
+  min-width: 300px;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#review_form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#review_form label, #review_form input {
+  display: block;
+}
+#review_form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#review_form .rate label, #review_form .rate input,
+#review_form .rate1 label, #review_form .rate1 input {
+  display: inline-block;
+}
+
+.rate {
+  height: 36px;
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.static-rate {
+  height: 36px;
+  display: inline-flex;
+}
+
+.rate > label, .static-rate > label {
+  margin-bottom: 0;
+  margin-top: -5px;
+  height: 30px;
+}
+.rate:not(:checked) > input {
+  top: -9999px;
+  margin-left: -24px;
+  width: 20px;
+  padding-right: 14px;
+  z-index: -10;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.static-rate > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label::before, .static-rate > label::before {
+  content: '★ ';
+  position: relative;
+  top: -10px;
+  left: 2px;
+}
+.rate > input:checked ~ label, .static-rate > label.gold {
+  color: #ffc700;
+}
+.rate > input:checked:focus + label, .rate > input:focus + label {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+#submit-review {
+  align-self: flex-end;
+}
+#offline {
+  position: fixed;
+  align-self: center;
+  justify-self: center;
+  top: -120px;
+  background-color: #f3df84;
+  border-bottom: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  padding: 10px 16px;
+  margin: 0 auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  max-width: 400px;
+  transition: top .3s ease-in-out 1s;
+}
+#offline.show {
+  top: 0;
+}
+#offline h3 {
+  margin: 0 0 6px;
+}
+#offline p {
+  margin: 0 0 10px;
+}
+
+@media screen and (max-width: 1100px) {
+  #restaurants-list li {
+    width: 270px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #restaurant-container {
+    width: 45%;
+  }
+  #reviews-container {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #restaurants-list li {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #restaurant-container {
+    flex-basis: 40%;
+    flex-grow: 1;
+  }
+  #reviews-container {
+    min-width: 365px;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 768px) {
+  #restaurants-list li {
+    width: 270px;
+  }
+}  
+
+@media screen and (max-width: 650px) {
+  #restaurant-container, #reviews-container, #breadcrumb {
+    padding: 12px;
+    width: 100%;
+  }
+  .filter-options {
+    flex-direction: column;
+  }
+  #restaurant-container, #reviews-container {
+    width: 100%;
+  }
+  #restaurant-name {
+    margin: 15px 0 10px;
+  }
+  #reviews-container h2 {
+    margin: 0 10px 10px 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #restaurant-container, #reviews-container, #breadcrumb {
+    padding: 10px;
+  }
+  #reviews-container {
+    min-width: unset;
+  }
+  #restaurants-list li {
+    margin: 15px 0;
+    width: 270px;
+  }
+  #offline {
+    max-width: 300px;
+    top: -170px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .static-rate > label {
+    font-size: 28px;
+  }
+  #reviews-list li p.updatedAt {
+    font-size: .90em;
+  }
+  #confirm_form {
+    min-width: 250px;
+  }
+}
+
+@media screen and (min-width: 426px) {
+  #restaurant-container {
+    padding-right: 20px;
+  }
+  #reviews-container {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-height: 540px) {
+  .modal {
+    top: 10px;
+    transform: translate(-50%, 0);
+  }
+  .modal_form_container {
+    overflow-y: scroll;
+    height: 230px;
+  }
+  #confirm_delete_modal {
+    top: 1%;
+  }
+}
+
+@media screen and (max-height: 300px) {
+  .modal_form_container {
+    height: 180px;
+  }
+}

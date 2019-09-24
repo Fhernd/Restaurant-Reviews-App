@@ -1,0 +1,21 @@
+{
+  "name": "restaurant-reviews-app",
+  "version": "1.0.0",
+  "description": "Restaurant Reviews App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "offline",
+    "udacity",
+    "app",
+    "responsive"
+  ],
+  "author": "@Fhernd",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "idb": "^2.1.0"
+  }
+}
